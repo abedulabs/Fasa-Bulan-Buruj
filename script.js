@@ -1,57 +1,84 @@
-const phases=[
- {name:"Bulan Baharu",icon:"🌑",desc:"Bulan berada hampir antara Matahari dan Bumi. Bahagian bercahaya menghadap jauh dari Bumi."},
- {name:"Sabit Muda",icon:"🌒",desc:"Sedikit bahagian permukaan Bulan yang bercahaya dapat dilihat dari Bumi."},
- {name:"Suku Pertama",icon:"🌓",desc:"Kira-kira separuh bahagian Bulan yang kelihatan dari Bumi bercahaya."},
- {name:"Hampir Purnama",icon:"🌔",desc:"Lebih separuh bahagian Bulan kelihatan bercahaya."},
- {name:"Bulan Purnama",icon:"🌕",desc:"Hampir seluruh bahagian Bulan yang menghadap Bumi kelihatan bercahaya."},
- {name:"Selepas Purnama",icon:"🌖",desc:"Bahagian Bulan yang bercahaya mula berkurang selepas purnama."},
- {name:"Suku Akhir",icon:"🌗",desc:"Kira-kira separuh bahagian Bulan kelihatan bercahaya."},
- {name:"Sabit Tua",icon:"🌘",desc:"Hanya sedikit bahagian bercahaya kelihatan sebelum kembali kepada Bulan Baharu."}
-];
+const data={
+ pari:{name:"Buruj Pari",shape:"layang-layang"},
+ scorpio:{name:"Buruj Skorpio",shape:"kala jengking"},
+ belantik:{name:"Buruj Belantik",shape:"pemburu"},
+ biduk:{name:"Buruj Biduk",shape:"gayung / senduk"}
+};
+let missionScore=0, currentTarget="pari", solvedTargets=new Set(), noteDone=false, directionDone=new Set();
 
-const slider=document.getElementById("phaseSlider");
-function updateMoon(){
- const i=+slider.value,p=phases[i];
- document.getElementById("phaseIcon").textContent=p.icon;
- document.getElementById("phaseName").textContent=p.name;
- document.getElementById("phaseDesc").textContent=p.desc;
- document.getElementById("moon").textContent=p.icon;
- const angle=i*45;
- document.getElementById("moon").style.transform=`rotate(${angle}deg) translateX(165px) rotate(${-angle}deg)`;
-}
-slider.addEventListener("input",updateMoon);updateMoon();
+const scoreEl=document.getElementById("missionScore");
+function updateScore(){scoreEl.textContent=missionScore;document.getElementById("noteScore").textContent=noteDone?1:0;document.getElementById("directionScore").textContent=directionDone.size}
 
-const questions=[
-["Apakah yang dimaksudkan dengan fasa Bulan?",["Perubahan warna Matahari","Perubahan rupa Bulan yang dilihat dari Bumi","Perubahan bentuk Bumi","Pergerakan bintang"],1],
-["Mengapakah Bulan kelihatan bercahaya?",["Bulan menghasilkan cahaya sendiri","Bulan memantulkan cahaya Matahari","Bulan menyerap cahaya Bumi","Bintang menerangi Bulan"],1],
-["Apakah fasa apabila hampir seluruh Bulan yang menghadap Bumi kelihatan bercahaya?",["Bulan Baharu","Suku Pertama","Bulan Purnama","Sabit Tua"],2],
-["Apakah yang berlaku semasa Bulan Baharu?",["Bulan sangat terang","Bulan hampir tidak kelihatan dari Bumi","Bulan bertukar menjadi bintang","Bulan berhenti bergerak"],1],
-["Apakah maksud buruj?",["Satu planet","Kumpulan bintang yang kelihatan membentuk corak tertentu","Kumpulan awan","Batu di angkasa"],1],
-["Yang manakah contoh buruj?",["Orion","Marikh","Bulan","Bumi"],0],
-["Apakah kegunaan buruj kepada manusia?",["Sebagai panduan arah dan kedudukan","Menghasilkan cahaya Matahari","Mengubah fasa Bulan","Mengawal cuaca"],0],
-["Selepas Bulan Purnama, bahagian Bulan yang bercahaya secara umum akan...",["Semakin bertambah","Semakin berkurang","Hilang selama setahun","Tidak berubah"],1],
-["Fasa manakah menunjukkan kira-kira separuh Bulan kelihatan bercahaya?",["Suku Pertama","Bulan Purnama","Bulan Baharu","Sabit Muda"],0],
-["Apakah faktor utama yang menyebabkan perubahan fasa Bulan?",["Kedudukan relatif Matahari, Bumi dan Bulan","Bulan berubah bentuk fizikal","Bumi menghasilkan cahaya","Bintang menolak Bulan"],0]
-];
-
-const form=document.getElementById("quizForm");
-questions.forEach((q,i)=>{
- const div=document.createElement("div");div.className="question";
- div.innerHTML=`<h3>${i+1}. ${q[0]}</h3>`+q[1].map((a,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"> ${String.fromCharCode(65+j)}. ${a}</label>`).join("");
- form.appendChild(div);
-});
-document.getElementById("submitQuiz").onclick=()=>{
- let score=0,answered=0;
- questions.forEach((q,i)=>{
-   const chosen=document.querySelector(`input[name="q${i}"]:checked`);
-   if(chosen){answered++;if(+chosen.value===q[2])score++;}
+document.querySelectorAll(".tab").forEach(tab=>{
+ tab.addEventListener("click",()=>{
+   document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+   document.querySelectorAll(".tab-panel").forEach(x=>x.classList.remove("active"));
+   tab.classList.add("active");document.getElementById(tab.dataset.tab).classList.add("active");
  });
- const result=document.getElementById("result");result.classList.remove("hidden");
- let msg=score>=9?"🏆 Hebat! Anda Pakar Angkasa!":score>=7?"🌟 Bagus! Teruskan misi!":score>=5?"🚀 Baik! Ulang kaji nota dan cuba lagi.":"🔭 Jangan berputus asa! Baca nota dan cuba semula.";
- result.innerHTML=`<strong>${score}/10</strong><br>${msg}<br><small>${answered}/10 soalan dijawab.</small>`;
- result.scrollIntoView({behavior:"smooth",block:"center"});
-};
-document.getElementById("resetQuiz").onclick=()=>{
- form.reset();document.getElementById("result").classList.add("hidden");
- window.scrollTo({top:document.querySelector(".quiz").offsetTop-20,behavior:"smooth"});
-};
+});
+
+const targetButtons=document.querySelectorAll(".const-pick");
+function selectTarget(key){
+ currentTarget=key;
+ const idx=["pari","scorpio","belantik","biduk"].indexOf(key);
+ document.getElementById("selectedTarget").textContent=String.fromCharCode(65+idx);
+ document.querySelectorAll(".target").forEach(t=>t.classList.toggle("selected",t.dataset.const===key));
+ targetButtons.forEach(b=>b.classList.toggle("selected",b.dataset.target===key));
+ document.querySelectorAll("#constAnswers button").forEach(b=>b.classList.remove("correct","wrong"));
+ document.getElementById("obsFeedback").textContent=solvedTargets.has(key)?"✅ Sasaran ini sudah betul. Pilih sasaran lain.":"";
+}
+targetButtons.forEach(b=>b.addEventListener("click",()=>selectTarget(b.dataset.target)));
+document.querySelectorAll(".target").forEach(t=>t.addEventListener("click",()=>selectTarget(t.dataset.const)));
+
+document.querySelectorAll("#constAnswers button").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+   const correct=btn.dataset.answer===currentTarget;
+   document.querySelectorAll("#constAnswers button").forEach(b=>b.classList.remove("correct","wrong"));
+   btn.classList.add(correct?"correct":"wrong");
+   const feedback=document.getElementById("obsFeedback");
+   if(correct){
+     if(!solvedTargets.has(currentTarget)){solvedTargets.add(currentTarget);missionScore++;updateScore();}
+     feedback.textContent=`🌟 Betul! ${data[currentTarget].name} membentuk corak seperti ${data[currentTarget].shape}.`;
+   }else feedback.textContent="🔭 Belum tepat. Perhatikan semula kedudukan dan corak bintang.";
+ });
+});
+
+document.getElementById("saveNote").addEventListener("click",()=>{
+ const n=document.getElementById("noteName").value.trim(),s=document.getElementById("noteShape").value.trim(),f=document.getElementById("noteFinding").value.trim();
+ const fb=document.getElementById("noteFeedback");
+ if(n&&s&&f){
+   if(!noteDone){noteDone=true;missionScore++;updateScore();}
+   fb.textContent="🛰️ Catatan berjaya disimpan. +1 markah misi!";
+ }else fb.textContent="⚠️ Lengkapkan ketiga-tiga ruangan dahulu.";
+});
+
+function directionAnswer(q,correct){
+ const box=document.querySelector(`[data-q="${q}"]`);
+ box.querySelectorAll("button").forEach(b=>b.classList.remove("correct","wrong"));
+ const chosen=[...box.querySelectorAll("button")].find(b=>b.dataset.answer===correct);
+ if(!directionDone.has(q)){directionDone.add(q);missionScore++;updateScore();}
+ chosen.classList.add("correct");
+ document.getElementById(q+"feedback").textContent="🌟 Betul! +1 markah misi.";
+}
+document.querySelector('[data-q="d1"]').querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+ const box=document.querySelector('[data-q="d1"]');
+ box.querySelectorAll("button").forEach(x=>x.classList.remove("correct","wrong"));
+ if(b.dataset.answer==="biduk"){directionAnswer("d1","biduk")}else{b.classList.add("wrong");document.getElementById("d1feedback").textContent="🔭 Cuba lagi. Ingat: Buruj Biduk ialah petunjuk arah utara."}
+}));
+document.querySelector('[data-q="d2"]').querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+ const box=document.querySelector('[data-q="d2"]');
+ box.querySelectorAll("button").forEach(x=>x.classList.remove("correct","wrong"));
+ if(b.dataset.answer==="pari"){directionAnswer("d2","pari")}else{b.classList.add("wrong");document.getElementById("d2feedback").textContent="🔭 Cuba lagi. Ingat: Buruj Pari ialah petunjuk arah selatan."}
+}));
+
+document.getElementById("finishMission").addEventListener("click",()=>{
+ const a=document.getElementById("achievement");a.classList.remove("hidden");
+ let title,icon,text;
+ if(missionScore===7){title="Saintis Angkasa Cemerlang";icon="🏆🚀";text="Hebat! Semua misi berjaya diselesaikan. Kamu memerhati, mencatat dan menggunakan pengetahuan buruj dengan sangat baik."}
+ else if(missionScore>=5){title="Angkasawan Muda";icon="🥇👨‍🚀";text="Syabas! Misi hampir lengkap. Teruskan penerokaan langit untuk menjadi saintis angkasa yang lebih hebat."}
+ else if(missionScore>=3){title="Penjelajah Angkasa";icon="🥈🔭";text="Bagus! Kamu sudah mula menguasai kemahiran pemerhatian dan penerokaan angkasa."}
+ else{title="Kadet Angkasa";icon="🌟🧑‍🚀";text="Misi baru bermula! Baca semula nota dan cuba lengkapkan semua stesen."}
+ a.innerHTML=`<div class="big-icon">${icon}</div><h3>${title}</h3><div class="medal">⭐ ${missionScore}/7 markah misi</div><p>${text}</p>`;
+ a.scrollIntoView({behavior:"smooth",block:"center"});
+});
+selectTarget("pari");updateScore();

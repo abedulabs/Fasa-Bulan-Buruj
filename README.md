@@ -1,24 +1,19 @@
-# 🌌 Misi Angkasa — Sains Tahun 5 PDPR
+# 🌌 Misi Angkasa — Sains Tahun 5 (v2)
 
-Web interaktif bertema angkasa untuk topik **Fasa Bulan dan Buruj**.
+Penambahbaikan Misi Tambahan:
+- 3 tab/stesen: Pemerhatian, Catatan, Arah.
+- Pemerhatian langit malam dengan banyak bintang dan 4 corak buruj.
+- 4 sasaran: Buruj Pari, Skorpio, Belantik dan Biduk.
+- Murid pilih jawapan selepas pemerhatian; setiap buruj betul = +1.
+- Catatan pemerhatian murid = +1.
+- 2 soalan objektif petunjuk arah = +2.
+- Jumlah bonus misi = 7 markah.
+- Visual pencapaian berdasarkan markah: Kadet Angkasa, Penjelajah Angkasa, Angkasawan Muda, Saintis Angkasa Cemerlang.
+- Berfungsi sepenuhnya secara offline/client-side dan sesuai untuk GitHub Pages.
 
-## Kandungan
-- Nota penting Fasa Bulan dan Buruj
-- Simulator Fasa Bulan menggunakan slider
-- 10 soalan kuiz objektif
-- Semakan skor automatik
-- Mesej pencapaian murid
-- Aktiviti misi tambahan pemerhatian buruj
-- Responsive untuk telefon, tablet dan komputer
-
-## Cara guna
-Buka `index.html` di browser.
-
-## GitHub Pages
-1. Upload semua fail dalam folder ini ke repository GitHub.
-2. Pergi ke **Settings → Pages**.
-3. Pilih **Deploy from a branch**.
-4. Pilih branch `main` dan folder `/root`.
-5. Save dan buka URL GitHub Pages yang diberikan.
-
-Semua fungsi berjalan di browser dan tidak memerlukan server/database.
+Rujukan kandungan arah dan kegunaan buruj diselaraskan dengan Sains Tahun 5 Unit 9:
+Buruj Biduk → petunjuk arah utara.
+Buruj Pari → petunjuk arah selatan.
+Buruj Biduk → petunjuk musim menanam.
+Buruj Belantik → petunjuk musim sejuk.
+Buruj Skorpio → petunjuk musim menuai.
