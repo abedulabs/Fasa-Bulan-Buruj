@@ -291,3 +291,35 @@
  .popup-card-v4 h3{font-size:1.55rem}
  .popup-close-v4{right:9px;top:8px;width:40px;height:40px}
 }
+
+/* ===== V5: CLEAN NIGHT SKY + REAL CONSTELLATION DIAGRAMS ===== */
+.sky-stage-v5{position:relative;width:100%;overflow:hidden;border-radius:20px;border:1px solid #536174;background:#020612;box-shadow:0 18px 60px #000a}
+.sky-stage-v5>img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.sky-hotspot-v5{position:absolute;z-index:5;width:12%;height:14%;border:2px solid transparent;background:#fff0;border-radius:50%;cursor:pointer;touch-action:manipulation}
+.sky-hotspot-v5 span{display:block;color:#fff;font-size:1.3rem;text-shadow:0 0 18px #fff;animation:twinkleV5 1.5s infinite}
+.sky-hotspot-v5:hover,.sky-hotspot-v5.active{border-color:#fff;box-shadow:0 0 30px #fff8;background:#fff1}
+.h-belantik{left:29%;top:17%}.h-biduk{left:68%;top:13%}.h-pari{left:22%;top:49%}.h-scorpio{left:66%;top:52%}
+.sky-hint-v5{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:8px 14px;border-radius:999px;background:#020712dd;border:1px solid #65758c;color:#fff;font-weight:800;font-size:.78rem;white-space:nowrap}
+.full-sky-btn{width:100%;margin-top:12px}
+.selected-constellation-v5{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:15px;padding:14px 16px;border:1px solid #343b45;border-radius:12px;background:#11151c;color:#d2d7de}
+.selected-constellation-v5 span{color:#8993a1}.small-btn{padding:9px 14px}
+.constellation-popup-v5{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:15px;background:#000d;overflow:auto}
+.constellation-popup-v5.hidden,.sky-viewer-v5.hidden{display:none!important}
+.popup-card-v5{position:relative;width:min(900px,96vw);max-height:92vh;overflow:auto;background:linear-gradient(145deg,#101722,#070b12);border:1px solid #718097;border-radius:22px;padding:24px;box-shadow:0 25px 100px #000}
+.popup-close-v5{position:absolute;right:13px;top:11px;width:45px;height:45px;border-radius:50%;background:#121a25;color:#fff;border:1px solid #7a8798;font-size:2rem;line-height:1;cursor:pointer;z-index:4}
+.popup-label-v5{font-size:.72rem;letter-spacing:3px;color:#aab5c4}.popup-card-v5 h3{font-size:2rem;margin:5px 55px 18px 0}
+.popup-content-v5{display:grid;grid-template-columns:46% 1fr;gap:20px;align-items:center}
+.constellation-diagram-v5{height:285px;border-radius:16px;background:radial-gradient(circle,#12294d,#02050c 76%);overflow:hidden;border:1px solid #3e5a82}
+.constellation-diagram-v5 svg{width:100%;height:100%}.const-lines line{stroke:#a8c6ee;stroke-width:2;opacity:.65}.const-stars circle:not(.glow){fill:#fff;filter:drop-shadow(0 0 7px #fff)}.const-stars .glow{fill:#bcd6ff;opacity:.18}
+.popup-copy-v5{color:#cbd2dc}.popup-copy-v5 b{color:#f1c84b}.popup-copy-v5 p{margin:5px 0 15px}.popup-done-v5{width:100%;margin-top:18px}
+.sky-viewer-v5{position:fixed;inset:0;z-index:99990;background:#01040b;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.viewer-image-v5{width:100vw;height:100vh;object-fit:contain;user-select:none}
+.viewer-close-v5{position:fixed;right:16px;top:14px;z-index:20;width:48px;height:48px;border-radius:50%;background:#101927e8;color:#fff;border:1px solid #718097;font-size:2rem}
+.viewer-title-v5{position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:20;padding:8px 15px;border-radius:999px;background:#020712d9;border:1px solid #66758b;color:#fff;font-weight:800;font-size:.8rem}
+.viewer-hotspot-v5{position:fixed;z-index:21;width:13vw;height:13vw;max-width:150px;max-height:150px;border-radius:50%;background:#fff0;border:2px solid transparent}
+.viewer-hotspot-v5:hover{border-color:#fff}
+.vh-belantik{left:27%;top:20%}.vh-biduk{left:67%;top:16%}.vh-pari{left:20%;top:51%}.vh-scorpio{left:65%;top:54%}
+@keyframes twinkleV5{50%{transform:scale(1.3);opacity:.65}}
+@media(max-width:720px){
+ .sky-hint-v5{font-size:.68rem;bottom:6px}.popup-card-v5{padding:20px 15px}.popup-content-v5{grid-template-columns:1fr}.constellation-diagram-v5{height:210px}.popup-card-v5 h3{font-size:1.55rem}
+}

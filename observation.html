@@ -2,11 +2,11 @@
 <html lang="ms">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>Balai Cerap • Misi Buruj</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="mission-page-body observatory-v4-body">
+<body class="mission-page-body observatory-v5-body">
 <div class="stars-bg"></div>
 <main class="mission-page">
   <div class="mission-topbar">
@@ -15,44 +15,48 @@
   </div>
 
   <section class="panel mission-panel">
-    <div class="section-title">
-      <span>STESEN 1</span>
-      <h2>🔭 Balai Cerap • Misi Buruj</h2>
+    <div class="section-title"><span>STESEN 1</span><h2>🔭 Balai Cerap • Misi Buruj</h2></div>
+    <p class="mission-intro">Sentuh buruj yang bercahaya di langit malam. Perhatikan corak bintangnya, baca penerangan dan kenal pasti buruj tersebut.</p>
+
+    <div class="sky-stage-v5">
+      <img src="langit_malam_bersih.png" alt="Langit malam dengan empat buruj" id="skyImage">
+      <button class="sky-hotspot-v5 h-belantik" data-const="belantik" aria-label="Buruj Belantik"><span>✦</span></button>
+      <button class="sky-hotspot-v5 h-biduk" data-const="biduk" aria-label="Buruj Biduk"><span>✦</span></button>
+      <button class="sky-hotspot-v5 h-pari" data-const="pari" aria-label="Buruj Pari"><span>✦</span></button>
+      <button class="sky-hotspot-v5 h-scorpio" data-const="scorpio" aria-label="Buruj Skorpio"><span>✦</span></button>
+      <div class="sky-hint-v5">☝️ Sentuh buruj</div>
+    </div>
+    <button id="fullscreenSky" class="btn full-sky-btn" type="button">🔎 Buka Langit Malam Penuh</button>
+
+    <div id="skyViewer" class="sky-viewer-v5 hidden" aria-modal="true" role="dialog">
+      <button id="closeViewer" class="viewer-close-v5" type="button" aria-label="Tutup paparan penuh">×</button>
+      <img src="langit_malam_bersih.png" alt="Paparan penuh langit malam" class="viewer-image-v5">
+      <div class="viewer-title-v5">LANGIT MALAM • SENTUH BURUJ</div>
+      <button class="viewer-hotspot-v5 vh-belantik" data-const="belantik" aria-label="Belantik"></button>
+      <button class="viewer-hotspot-v5 vh-biduk" data-const="biduk" aria-label="Biduk"></button>
+      <button class="viewer-hotspot-v5 vh-pari" data-const="pari" aria-label="Pari"></button>
+      <button class="viewer-hotspot-v5 vh-scorpio" data-const="scorpio" aria-label="Skorpio"></button>
     </div>
 
-    <p class="mission-intro">
-      Sentuh salah satu buruj yang bercahaya. Perhatikan bentuk bintang,
-      baca trivia dan kegunaannya, kemudian kenal pasti buruj tersebut.
-    </p>
-
-    <div class="interactive-sky-v4">
-      <img src="balai_cerap.png" alt="Langit malam dengan empat buruj di balai cerap">
-      <button class="sky-hotspot-v4 h-belantik" data-const="belantik" aria-label="Sentuh Buruj Belantik"><span>Belantik</span></button>
-      <button class="sky-hotspot-v4 h-biduk" data-const="biduk" aria-label="Sentuh Buruj Biduk"><span>Biduk</span></button>
-      <button class="sky-hotspot-v4 h-pari" data-const="pari" aria-label="Sentuh Buruj Pari"><span>Pari</span></button>
-      <button class="sky-hotspot-v4 h-scorpio" data-const="scorpio" aria-label="Sentuh Buruj Skorpio"><span>Skorpio</span></button>
-      <div class="sky-prompt-v4">☝️ Sentuh buruj untuk melihat maklumat</div>
+    <div class="selected-constellation-v5">
+      <div><span>Buruj dipilih:</span> <b id="selectedTarget">Belum dipilih</b></div>
+      <button id="openInfo" class="btn small-btn" type="button">🔭 Lihat Penerangan</button>
     </div>
 
-    <div class="selected-constellation-v4">
-      <div><span>Buruj dipilih</span><b id="selectedTarget">Belum dipilih</b></div>
-      <button id="openInfo" class="btn small-btn" type="button">🔭 Lihat Maklumat</button>
-    </div>
-
-    <div id="constellationPopup" class="constellation-popup hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
-      <div class="popup-card-v4">
-        <button id="closePopup" class="popup-close-v4" type="button" aria-label="Tutup">×</button>
-        <div class="popup-label-v4">🔭 PEMERHATIAN BURUJ</div>
+    <div id="constellationPopup" class="constellation-popup-v5 hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="popup-card-v5">
+        <button id="closePopup" class="popup-close-v5" type="button" aria-label="Tutup">×</button>
+        <div class="popup-label-v5">🔭 PEMERHATIAN BURUJ</div>
         <h3 id="popupTitle">Buruj</h3>
-        <div class="popup-content-v4">
-          <div id="popupVisual" class="popup-visual-v4"></div>
-          <div class="popup-copy-v4">
+        <div class="popup-content-v5">
+          <div id="popupConstellation" class="constellation-diagram-v5"></div>
+          <div class="popup-copy-v5">
             <div><b>⭐ Bentuk</b><p id="popupShape"></p></div>
             <div><b>📖 Trivia Sains</b><p id="popupFact"></p></div>
             <div><b>🧭 Kegunaan kepada manusia</b><p id="popupUse"></p></div>
           </div>
         </div>
-        <button id="donePopup" class="btn popup-done-v4" type="button">✓ Faham & Tutup</button>
+        <button id="donePopup" class="btn popup-done-v5" type="button">✓ Faham & Tutup</button>
       </div>
     </div>
 
@@ -67,10 +71,7 @@
       <p id="obsFeedback" class="feedback"></p>
     </div>
 
-    <div class="mission-instruction">
-      📝 Selepas mengenal pasti buruj, tekan <b>Terus ke Catatan</b> dan rekod apa yang kamu perhatikan.
-    </div>
-
+    <div class="mission-instruction">📝 Selepas mengenal pasti buruj, teruskan ke Catatan untuk merekod pemerhatian kamu.</div>
     <div class="next-row">
       <a class="back ghost" href="index.html">← Kembali ke Misi</a>
       <a class="btn" href="notes.html">Terus ke Catatan →</a>
