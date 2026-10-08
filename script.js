@@ -47,15 +47,28 @@ if(form){
    if(chosen){answered++;if(+chosen.value===q[2])score++;}
   });
   const result=document.getElementById("result");result.classList.remove("hidden");
+  setQuizScore(score);
   const msg=score>=9?"🏆 Hebat! Anda Pakar Angkasa!":score>=7?"🌟 Bagus! Teruskan misi!":score>=5?"🚀 Baik! Ulang kaji nota dan cuba lagi.":"🔭 Jangan berputus asa! Baca nota dan cuba semula.";
-  result.innerHTML=`<strong>${score}/10</strong><br>${msg}<br><small>${answered}/10 soalan dijawab.</small>`;
+  result.innerHTML=`<strong>${score}/10</strong><br>${msg}<br><small>${answered}/10 soalan dijawab.</small>${answered===10?`<br><b class="completion-remark">✅ Kuiz Selesai</b>`:`<br><b class="completion-remark">⏳ Kuiz Belum Selesai</b>`}`;
   result.scrollIntoView({behavior:"smooth",block:"center"});
  };
  document.getElementById("resetQuiz").onclick=()=>{form.reset();document.getElementById("result").classList.add("hidden");};
 }
 
 const defaultMission={total:0,observation:{pari:false,scorpio:false,belantik:false,biduk:false},notes:false,direction:0};
+function getQuizScore(){try{return Number(localStorage.getItem("misiAngkasaQuizScore")||0)}catch(e){return 0}}
+function setQuizScore(v){localStorage.setItem("misiAngkasaQuizScore",String(v))}
+function missionComplete(s){return Object.values(s.observation||{}).filter(Boolean).length===4 && !!s.notes && Number(s.direction||0)>=2}
 function loadMission(){try{return {...defaultMission,...JSON.parse(localStorage.getItem("misiAngkasa"))}}catch(e){return {...defaultMission}}}
 function saveMission(s){localStorage.setItem("misiAngkasa",JSON.stringify(s))}
 const ms=loadMission();
 const hs=document.getElementById("homeScore"); if(hs)hs.textContent=`${ms.total}/7`;
+const quizHome=document.getElementById("quizHomeScore"); if(quizHome)quizHome.textContent=`${getQuizScore()}/10`;
+const completeBadge=document.getElementById("missionComplete");
+if(completeBadge) completeBadge.textContent=missionComplete(ms)?"✅ Misi Tambahan Selesai":"⏳ Misi Belum Selesai";
+const resultBtn=document.getElementById("viewResultBtn");
+if(resultBtn){
+ const ready=missionComplete(ms)&&getQuizScore()>=0;
+ resultBtn.classList.toggle("ready-result",ready);
+ resultBtn.href="result.html?v=7";
+}
