@@ -212,3 +212,82 @@
 .sky-hotspot{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .constellation-info{position:relative!important;z-index:20!important}
 .close-info,.sky-hotspot,.observation-answer button,.btn{touch-action:manipulation}
+
+/* ===== VERSION 4: ROBUST TOUCH POPUP ===== */
+.interactive-sky-v4{
+ position:relative;width:100%;overflow:hidden;border-radius:20px;
+ border:1px solid #56606e;background:#02050d;box-shadow:0 18px 60px #000a;
+}
+.interactive-sky-v4>img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.sky-hotspot-v4{
+ position:absolute;z-index:8;cursor:pointer;border:2px solid transparent;
+ background:transparent;border-radius:50%;touch-action:manipulation;
+ -webkit-tap-highlight-color:transparent;transition:.2s;
+}
+.sky-hotspot-v4 span{
+ position:absolute;left:50%;top:-30px;transform:translateX(-50%);
+ padding:4px 10px;border-radius:999px;background:#0a1020d9;
+ border:1px solid #6c7b91;color:#fff;font-size:.72rem;font-weight:800;
+ opacity:0;transition:.2s;white-space:nowrap;
+}
+.sky-hotspot-v4:hover,.sky-hotspot-v4.active{border-color:#fff;background:#fff2;box-shadow:0 0 32px #fff7}
+.sky-hotspot-v4:hover span,.sky-hotspot-v4.active span{opacity:1}
+.h-belantik{left:29%;top:12%;width:27%;height:31%}
+.h-biduk{left:53%;top:5%;width:22%;height:31%}
+.h-pari{left:17%;top:38%;width:28%;height:27%}
+.h-scorpio{left:49%;top:48%;width:29%;height:29%}
+.sky-prompt-v4{
+ position:absolute;z-index:10;left:50%;bottom:14px;transform:translateX(-50%);
+ padding:8px 15px;border-radius:999px;background:#050812e8;border:1px solid #697384;
+ color:#f2f5f8;font-weight:800;font-size:.8rem;white-space:nowrap;
+}
+.selected-constellation-v4{
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ flex-wrap:wrap;margin-top:15px;padding:14px 16px;border:1px solid #343b45;
+ border-radius:12px;background:#11151c;color:#d2d7de;
+}
+.selected-constellation-v4>div{display:flex;gap:10px;align-items:center}
+.selected-constellation-v4 span{color:#8993a1}.selected-constellation-v4 b{color:#fff}
+.small-btn{padding:9px 14px}
+.constellation-popup{
+ position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+ padding:18px;background:rgba(0,0,0,.82);overflow:auto;
+}
+.constellation-popup.hidden{display:none!important}
+.popup-card-v4{
+ position:relative;width:min(900px,96vw);max-height:92vh;overflow:auto;
+ background:linear-gradient(145deg,#101722,#080c13);border:1px solid #718097;
+ border-radius:22px;padding:24px;box-shadow:0 25px 100px #000;
+}
+.popup-close-v4{
+ position:absolute;right:14px;top:12px;width:44px;height:44px;border-radius:50%;
+ background:#171e29;color:#fff;border:1px solid #6a7586;font-size:2rem;
+ line-height:1;cursor:pointer;touch-action:manipulation;z-index:3;
+}
+.popup-close-v4:hover{background:#f1f4f7;color:#07090d}
+.popup-label-v4{font-size:.72rem;letter-spacing:3px;color:#9ca9ba}
+.popup-card-v4 h3{font-size:2rem;margin:4px 50px 18px 0}
+.popup-content-v4{display:grid;grid-template-columns:45% 1fr;gap:22px;align-items:center}
+.popup-visual-v4{
+ height:280px;border-radius:16px;
+ background:radial-gradient(circle at 50% 50%,#172b50,#030611 78%);
+ position:relative;overflow:hidden;
+}
+.popup-visual-v4:before{
+ content:"✦   ✧      ✦  ✦     ✧   ✦   ✦";
+ position:absolute;inset:0;display:grid;place-items:center;
+ color:#fff;font-size:2rem;letter-spacing:10px;
+ text-shadow:0 0 16px #fff;
+}
+.popup-copy-v4{color:#c8ced7}.popup-copy-v4 b{color:#f1c84b}.popup-copy-v4 p{margin:5px 0 14px}
+.popup-done-v4{width:100%;margin-top:18px;text-align:center}
+.popup-open-v4{overflow:hidden}
+@media(max-width:720px){
+ .sky-hotspot-v4 span{opacity:1;font-size:.65rem}
+ .sky-prompt-v4{font-size:.68rem;bottom:7px}
+ .popup-card-v4{padding:20px 15px;border-radius:18px;max-height:90vh}
+ .popup-content-v4{grid-template-columns:1fr;gap:10px}
+ .popup-visual-v4{height:170px}
+ .popup-card-v4 h3{font-size:1.55rem}
+ .popup-close-v4{right:9px;top:8px;width:40px;height:40px}
+}

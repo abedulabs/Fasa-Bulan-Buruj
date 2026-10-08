@@ -1,31 +1,83 @@
 <!DOCTYPE html>
-<html lang="ms"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Balai Cerap • Misi Angkasa</title><link rel="stylesheet" href="style.css"></head>
-<body class="mission-page-body"><div class="stars-bg"></div>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Balai Cerap • Misi Buruj</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="mission-page-body observatory-v4-body">
+<div class="stars-bg"></div>
 <main class="mission-page">
-<div class="mission-topbar"><a class="back" href="index.html">← Kembali ke Misi</a><span>⭐ Markah: <b id="obsScoreTop">0</b>/7</span></div>
-<section class="panel mission-panel">
-<div class="section-title"><span>STESEN 1</span><h2>🔭 Balai Cerap • Pemerhatian Buruj</h2></div>
-<p class="mission-intro">Kamu kini berada di balai cerap. Perhatikan <b>kedudukan bintang</b> di langit malam. Empat buruj berada di celahan bintang. Klik satu sasaran untuk melihat coraknya dengan lebih jelas.</p>
-<div class="observatory">
-  <div class="observatory-title">LANGIT MALAM • BALAI CERAPAN</div>
-  <div class="star-field"></div>
-  <button class="const-zone zone-pari" data-const="pari" aria-label="Sasaran A"></button>
-  <button class="const-zone zone-scorpio" data-const="scorpio" aria-label="Sasaran B"></button>
-  <button class="const-zone zone-belantik" data-const="belantik" aria-label="Sasaran C"></button>
-  <button class="const-zone zone-biduk" data-const="biduk" aria-label="Sasaran D"></button>
-  <div class="zone-label label-a">A</div><div class="zone-label label-b">B</div><div class="zone-label label-c">C</div><div class="zone-label label-d">D</div>
-</div>
-<div class="mission-instruction">🔭 <b>Pilih A, B, C atau D.</b> Selepas memilih, tekan <b>Besarkan Corak</b> untuk memerhatikan susunan bintang dengan lebih jelas.</div>
-<div class="target-buttons">
-<button data-target="pari">Sasaran A</button><button data-target="scorpio">Sasaran B</button>
-<button data-target="belantik">Sasaran C</button><button data-target="biduk">Sasaran D</button>
-</div>
-<div class="focus-card"><div>Kawasan dipilih: <b id="selectedTarget">A</b></div><button id="focusBtn" class="btn">🔎 Besarkan Corak</button></div>
-<div class="observation-answer"><h3>Apakah buruj yang kamu perhatikan?</h3>
-<div class="answer-grid"><button data-answer="pari">Buruj Pari</button><button data-answer="scorpio">Buruj Skorpio</button><button data-answer="belantik">Buruj Belantik</button><button data-answer="biduk">Buruj Biduk</button></div>
-<p id="obsFeedback" class="feedback"></p></div>
-<div class="next-row"><a class="back ghost" href="index.html">← Kembali ke Misi</a><a class="btn" href="notes.html">Terus ke Catatan →</a></div>
-</section></main>
-<div id="focusModal" class="focus-modal hidden"><div class="focus-window"><button id="closeFocus" class="close-focus">×</button><div class="focus-title">🔭 PEMERHATIAN DEKAT</div><p id="focusName">Sasaran A</p><div id="focusSky" class="focus-sky"></div><p class="focus-help">Perhatikan <b>titik bintang sahaja</b>. Tiada garisan penghubung diberikan.</p></div></div>
-<script src="script.js"></script><script src="observation.js"></script></body></html>
+  <div class="mission-topbar">
+    <a class="back" href="index.html">← Kembali ke Misi</a>
+    <span>⭐ Markah: <b id="obsScoreTop">0</b>/7</span>
+  </div>
+
+  <section class="panel mission-panel">
+    <div class="section-title">
+      <span>STESEN 1</span>
+      <h2>🔭 Balai Cerap • Misi Buruj</h2>
+    </div>
+
+    <p class="mission-intro">
+      Sentuh salah satu buruj yang bercahaya. Perhatikan bentuk bintang,
+      baca trivia dan kegunaannya, kemudian kenal pasti buruj tersebut.
+    </p>
+
+    <div class="interactive-sky-v4">
+      <img src="balai_cerap.png" alt="Langit malam dengan empat buruj di balai cerap">
+      <button class="sky-hotspot-v4 h-belantik" data-const="belantik" aria-label="Sentuh Buruj Belantik"><span>Belantik</span></button>
+      <button class="sky-hotspot-v4 h-biduk" data-const="biduk" aria-label="Sentuh Buruj Biduk"><span>Biduk</span></button>
+      <button class="sky-hotspot-v4 h-pari" data-const="pari" aria-label="Sentuh Buruj Pari"><span>Pari</span></button>
+      <button class="sky-hotspot-v4 h-scorpio" data-const="scorpio" aria-label="Sentuh Buruj Skorpio"><span>Skorpio</span></button>
+      <div class="sky-prompt-v4">☝️ Sentuh buruj untuk melihat maklumat</div>
+    </div>
+
+    <div class="selected-constellation-v4">
+      <div><span>Buruj dipilih</span><b id="selectedTarget">Belum dipilih</b></div>
+      <button id="openInfo" class="btn small-btn" type="button">🔭 Lihat Maklumat</button>
+    </div>
+
+    <div id="constellationPopup" class="constellation-popup hidden" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+      <div class="popup-card-v4">
+        <button id="closePopup" class="popup-close-v4" type="button" aria-label="Tutup">×</button>
+        <div class="popup-label-v4">🔭 PEMERHATIAN BURUJ</div>
+        <h3 id="popupTitle">Buruj</h3>
+        <div class="popup-content-v4">
+          <div id="popupVisual" class="popup-visual-v4"></div>
+          <div class="popup-copy-v4">
+            <div><b>⭐ Bentuk</b><p id="popupShape"></p></div>
+            <div><b>📖 Trivia Sains</b><p id="popupFact"></p></div>
+            <div><b>🧭 Kegunaan kepada manusia</b><p id="popupUse"></p></div>
+          </div>
+        </div>
+        <button id="donePopup" class="btn popup-done-v4" type="button">✓ Faham & Tutup</button>
+      </div>
+    </div>
+
+    <div class="observation-answer">
+      <h3>⭐ Selepas pemerhatian, kenal pasti buruj</h3>
+      <div class="answer-grid">
+        <button data-answer="biduk">Buruj Biduk</button>
+        <button data-answer="pari">Buruj Pari</button>
+        <button data-answer="belantik">Buruj Belantik</button>
+        <button data-answer="scorpio">Buruj Skorpio</button>
+      </div>
+      <p id="obsFeedback" class="feedback"></p>
+    </div>
+
+    <div class="mission-instruction">
+      📝 Selepas mengenal pasti buruj, tekan <b>Terus ke Catatan</b> dan rekod apa yang kamu perhatikan.
+    </div>
+
+    <div class="next-row">
+      <a class="back ghost" href="index.html">← Kembali ke Misi</a>
+      <a class="btn" href="notes.html">Terus ke Catatan →</a>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+<script src="observation.js"></script>
+</body>
+</html>
