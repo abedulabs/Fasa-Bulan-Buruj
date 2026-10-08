@@ -1,19 +1,22 @@
-# 🌌 Misi Angkasa — Sains Tahun 5 (v2)
+# 🌌 Misi Angkasa — Sains Tahun 5 PDPR
 
-Penambahbaikan Misi Tambahan:
-- 3 tab/stesen: Pemerhatian, Catatan, Arah.
-- Pemerhatian langit malam dengan banyak bintang dan 4 corak buruj.
-- 4 sasaran: Buruj Pari, Skorpio, Belantik dan Biduk.
-- Murid pilih jawapan selepas pemerhatian; setiap buruj betul = +1.
-- Catatan pemerhatian murid = +1.
-- 2 soalan objektif petunjuk arah = +2.
-- Jumlah bonus misi = 7 markah.
-- Visual pencapaian berdasarkan markah: Kadet Angkasa, Penjelajah Angkasa, Angkasawan Muda, Saintis Angkasa Cemerlang.
-- Berfungsi sepenuhnya secara offline/client-side dan sesuai untuk GitHub Pages.
+Web interaktif topik **Fasa Bulan & Buruj**.
 
-Rujukan kandungan arah dan kegunaan buruj diselaraskan dengan Sains Tahun 5 Unit 9:
-Buruj Biduk → petunjuk arah utara.
-Buruj Pari → petunjuk arah selatan.
-Buruj Biduk → petunjuk musim menanam.
-Buruj Belantik → petunjuk musim sejuk.
-Buruj Skorpio → petunjuk musim menuai.
+## Aliran Misi Tambahan
+1. **Pemerhatian** → buka halaman simulasi langit malam dan kenal pasti 4 buruj: Pari, Skorpio, Belantik dan Biduk. Setiap buruj betul = +1.
+2. **Catatan** → kembali ke halaman misi, buka Catatan dan tulis pemerhatian. Lengkap = +1.
+3. **Arah** → buka soalan objektif Utara dan Selatan. Setiap betul = +1.
+4. **Pencapaian** → sistem kira 7 markah dan paparkan tahap Kadet Angkasa / Penjelajah Angkasa / Angkasawan Muda / Saintis Angkasa Cemerlang.
+
+Markah disimpan menggunakan localStorage supaya kekal ketika murid berpindah antara halaman.
+
+## Fail
+- `index.html` — halaman utama Misi Tambahan
+- `observation.html` — simulasi langit dan pemerhatian buruj
+- `notes.html` — catatan murid
+- `direction.html` — soalan arah Utara/Selatan
+- `result.html` — keputusan penuh pencapaian
+- fail JS/CSS sokongan
+
+## GitHub Pages
+Upload semua fail ke repository dan aktifkan GitHub Pages daripada branch `main`.

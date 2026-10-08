@@ -1,131 +1,15 @@
 <!DOCTYPE html>
 <html lang="ms">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misi Angkasa • Sains Tahun 5</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="stars-bg"></div>
-
-<header class="hero">
-  <div class="eyebrow">SAINS TAHUN 5 • UNIT 9</div>
-  <h1>🌌 MISI ANGKASA</h1>
-  <p>Fasa Bulan & Buruj</p>
-  <p class="lead">Jadilah saintis angkasa. Perhati buruj, catat penemuan dan gunakan buruj sebagai petunjuk arah.</p>
-  <div class="hero-stats"><span>🌙 Fasa Bulan</span><span>⭐ Buruj</span><span>🚀 Misi +7</span></div>
-</header>
-
-<main>
-<section class="panel">
-  <div class="section-title"><span>04</span><h2>⭐ Misi Tambahan: Penjelajah Angkasa</h2></div>
-  <p class="intro">Selesaikan <b>3 stesen misi</b>. Setiap tugasan yang berjaya akan menambah markah misi. Perhatikan dahulu sebelum memilih jawapan!</p>
-
-  <nav class="mission-tabs" aria-label="Stesen misi">
-    <button class="tab active" data-tab="observation">🔭 Pemerhatian <small>+4</small></button>
-    <button class="tab" data-tab="notes">📝 Catatan <small>+1</small></button>
-    <button class="tab" data-tab="direction">🧭 Arah <small>+2</small></button>
-  </nav>
-
-  <!-- STATION 1 -->
-  <div id="observation" class="tab-panel active">
-    <div class="station-head">
-      <div><span class="station-no">STESEN 1</span><h3>🔭 Pemerhatian Buruj</h3></div>
-      <div class="score-pill">Markah Misi: <b id="missionScore">0</b>/7</div>
-    </div>
-    <p class="hint">Perhatikan langit di bawah. Empat buruj tersembunyi di celahan bintang. Pilih satu sasaran dan kenal pasti bentuknya.</p>
-
-    <div class="sky-wrap">
-      <div class="sky" id="sky">
-        <div class="sky-title">LANGIT MALAM • IMBAS DAN PERHATIKAN</div>
-        <div class="target t1" data-const="pari"><span class="target-dot"></span></div>
-        <div class="target t2" data-const="scorpio"><span class="target-dot"></span></div>
-        <div class="target t3" data-const="belantik"><span class="target-dot"></span></div>
-        <div class="target t4" data-const="biduk"><span class="target-dot"></span></div>
-      </div>
-    </div>
-
-    <div class="constellation-picks">
-      <button class="const-pick" data-target="pari">🔭 Sasaran A</button>
-      <button class="const-pick" data-target="scorpio">🔭 Sasaran B</button>
-      <button class="const-pick" data-target="belantik">🔭 Sasaran C</button>
-      <button class="const-pick" data-target="biduk">🔭 Sasaran D</button>
-    </div>
-
-    <div class="observation-box">
-      <div class="target-label">Sasaran dipilih: <b id="selectedTarget">A</b></div>
-      <h4 id="obsQuestion">Apakah buruj yang kamu perhatikan?</h4>
-      <div class="answer-grid" id="constAnswers">
-        <button data-answer="pari">Buruj Pari</button>
-        <button data-answer="scorpio">Buruj Skorpio</button>
-        <button data-answer="belantik">Buruj Belantik</button>
-        <button data-answer="biduk">Buruj Biduk</button>
-      </div>
-      <p id="obsFeedback" class="feedback"></p>
-    </div>
-
-    <div class="mini-note">💡 <b>Petunjuk:</b> Pari kelihatan seperti layang-layang, Skorpio seperti kala jengking, Belantik seperti pemburu dan Biduk seperti gayung/senduk.</div>
-  </div>
-
-  <!-- STATION 2 -->
-  <div id="notes" class="tab-panel">
-    <div class="station-head">
-      <div><span class="station-no">STESEN 2</span><h3>📝 Catatan Saintis</h3></div>
-      <div class="score-pill">Markah: <b id="noteScore">0</b>/1</div>
-    </div>
-    <p class="hint">Tulis pemerhatian kamu selepas melihat buruj. Catat sekurang-kurangnya nama buruj, bentuk dan satu perkara yang kamu pelajari.</p>
-    <div class="note-template">
-      <label>Nama buruj yang saya perhatikan</label>
-      <input id="noteName" maxlength="60" placeholder="Contoh: Buruj Pari">
-      <label>Bentuk / corak bintang</label>
-      <textarea id="noteShape" maxlength="180" placeholder="Contoh: Empat bintang membentuk corak seperti layang-layang."></textarea>
-      <label>Penemuan saya</label>
-      <textarea id="noteFinding" maxlength="180" placeholder="Contoh: Buruj boleh digunakan sebagai petunjuk arah."></textarea>
-      <button class="btn" id="saveNote">💾 Simpan Catatan (+1)</button>
-      <p id="noteFeedback" class="feedback"></p>
-    </div>
-  </div>
-
-  <!-- STATION 3 -->
-  <div id="direction" class="tab-panel">
-    <div class="station-head">
-      <div><span class="station-no">STESEN 3</span><h3>🧭 Kompas Langit</h3></div>
-      <div class="score-pill">Markah: <b id="directionScore">0</b>/2</div>
-    </div>
-    <p class="hint">Berdasarkan pengetahuan Sains Tahun 5, jawab dua soalan objektif berikut.</p>
-
-    <div class="direction-question">
-      <h4>1. Buruj yang sentiasa menunjuk ke arah utara ialah...</h4>
-      <div class="answer-grid one" data-q="d1">
-        <button data-answer="pari">Buruj Pari</button>
-        <button data-answer="biduk">Buruj Biduk</button>
-        <button data-answer="scorpio">Buruj Skorpio</button>
-        <button data-answer="belantik">Buruj Belantik</button>
-      </div>
-      <p id="d1feedback" class="feedback"></p>
-    </div>
-
-    <div class="direction-question">
-      <h4>2. Buruj yang sentiasa menunjuk ke arah selatan ialah...</h4>
-      <div class="answer-grid one" data-q="d2">
-        <button data-answer="pari">Buruj Pari</button>
-        <button data-answer="biduk">Buruj Biduk</button>
-        <button data-answer="scorpio">Buruj Skorpio</button>
-        <button data-answer="belantik">Buruj Belantik</button>
-      </div>
-      <p id="d2feedback" class="feedback"></p>
-    </div>
-  </div>
-
-  <div class="result-area">
-    <button class="btn result-btn" id="finishMission">🚀 Tamatkan Misi & Lihat Pencapaian</button>
-    <div id="achievement" class="achievement hidden"></div>
-  </div>
-</section>
-</main>
-
-<footer>🌌 Misi Angkasa • Sains Tahun 5 • Pembelajaran Interaktif</footer>
-<script src="script.js"></script>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Misi Angkasa • Sains Tahun 5</title><link rel="stylesheet" href="style.css"></head>
+<body class="main-page"><div class="stars-bg"></div>
+<header class="hero"><div class="eyebrow">SAINS TAHUN 5 • UNIT 9</div><h1>🌌 MISI ANGKASA</h1><p>Fasa Bulan & Buruj</p><p class="lead">Lengkapkan tiga stesen misi untuk menjadi Penjelajah Angkasa.</p></header>
+<main><section class="panel mission-home"><div class="section-title"><span>04</span><h2>⭐ Misi Tambahan: Penjelajah Angkasa</h2></div>
+<p class="intro">Ikuti misi mengikut urutan: <b>Pemerhatian → Catatan → Arah</b>. Setiap stesen akan dibuka sebagai halaman khas supaya kamu boleh fokus pada tugasan.</p>
+<div class="mission-progress"><span>Markah Misi</span><strong id="homeScore">0/7</strong></div>
+<div class="mission-cards">
+<a class="mission-card" href="observation.html"><div class="card-icon">🔭</div><div><span>STESEN 1</span><h3>Pemerhatian</h3><p>Terokai langit malam dan kenal pasti 4 buruj.</p></div><b>+4</b></a>
+<a class="mission-card" href="notes.html"><div class="card-icon">📝</div><div><span>STESEN 2</span><h3>Catatan</h3><p>Tulis pemerhatian selepas meneroka buruj.</p></div><b>+1</b></a>
+<a class="mission-card" href="direction.html"><div class="card-icon">🧭</div><div><span>STESEN 3</span><h3>Arah</h3><p>Jawab soalan objektif arah Utara dan Selatan.</p></div><b>+2</b></a>
+</div>
+<div class="mission-tip">🚀 <b>Arahan:</b> Klik <b>Pemerhatian</b> dahulu. Selepas selesai, tekan <b>← Kembali ke Misi</b> dan teruskan ke Catatan dan Arah.</div>
+</section></main><footer>🌌 Misi Angkasa • Sains Tahun 5 • Pembelajaran Interaktif</footer><script src="script.js"></script></body></html>
