@@ -205,3 +205,10 @@
   .selected-constellation{align-items:flex-start}
   .small-btn{margin-left:0;width:100%}
 }
+
+/* FREEZE-SAFE OVERRIDE: no full-screen popup/overlay is used by the new observatory */
+.focus-modal,.focus-window{display:none!important}
+.interactive-sky{touch-action:manipulation}
+.sky-hotspot{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.constellation-info{position:relative!important;z-index:20!important}
+.close-info,.sky-hotspot,.observation-answer button,.btn{touch-action:manipulation}
