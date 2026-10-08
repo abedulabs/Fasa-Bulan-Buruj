@@ -323,3 +323,62 @@
 @media(max-width:720px){
  .sky-hint-v5{font-size:.68rem;bottom:6px}.popup-card-v5{padding:20px 15px}.popup-content-v5{grid-template-columns:1fr}.constellation-diagram-v5{height:210px}.popup-card-v5 h3{font-size:1.55rem}
 }
+
+/* ===== V6 CLEAN SKY VIEWER OVERRIDES ===== */
+.sky-stage-v5{
+  position:relative; width:100%; overflow:hidden; border-radius:18px;
+  background:#000; border:1px solid #3d4652;
+}
+.sky-stage-v5 img{display:block;width:100%;height:auto}
+.sky-hotspot-v5{touch-action:manipulation}
+.sky-viewer-v5{
+  position:fixed; inset:0; z-index:10000; background:#000;
+  overflow:auto; padding:12px;
+}
+.sky-viewer-v5.hidden{display:none!important}
+.viewer-image-v5{
+  display:block; width:100%; max-width:1000px; height:auto; margin:0 auto;
+  border-radius:12px; user-select:none; -webkit-user-drag:none;
+}
+.viewer-title-v5{
+  position:fixed; top:14px; left:50%; transform:translateX(-50%);
+  z-index:10003; padding:9px 15px; border-radius:999px;
+  background:#05070bdc; border:1px solid #718096; color:#fff;
+  font-weight:800; font-size:.8rem; pointer-events:none;
+}
+.viewer-close-v5{
+  position:fixed; right:16px; top:14px; z-index:10004;
+  width:46px;height:46px;border-radius:50%;border:1px solid #8591a2;
+  background:#111722;color:#fff;font-size:2rem;line-height:1;cursor:pointer;
+  touch-action:manipulation;
+}
+.viewer-hotspot-v5{
+  position:absolute; z-index:10002; background:transparent;
+  border:2px solid transparent; border-radius:50%; cursor:pointer;
+  touch-action:manipulation; -webkit-tap-highlight-color:transparent;
+}
+.viewer-hotspot-v5:hover,.viewer-hotspot-v5:focus{
+  border-color:#fff; background:#fff1; box-shadow:0 0 25px #fff6;
+}
+.vh-scorpio{left:7%;top:10%;width:35%;height:31%}
+.vh-pari{left:60%;top:19%;width:31%;height:24%}
+.vh-biduk{left:3%;top:57%;width:49%;height:18%}
+.vh-belantik{left:58%;top:53%;width:37%;height:27%}
+
+.constellation-diagram-v5{
+  min-height:270px;border-radius:16px;background-color:#020611;
+  background-image:url("langit_malam_bersih.png");
+  background-repeat:no-repeat;background-size:922px 1536px;
+  border:1px solid #4b5b70; box-shadow:inset 0 0 35px #000;
+}
+.crop-scorpio{background-position:8% 16%;background-size:150% auto}
+.crop-pari{background-position:74% 29%;background-size:155% auto}
+.crop-biduk{background-position:25% 70%;background-size:145% auto}
+.crop-belantik{background-position:73% 68%;background-size:145% auto}
+
+@media(max-width:720px){
+ .viewer-title-v5{top:8px;font-size:.68rem}
+ .viewer-close-v5{right:10px;top:8px}
+ .sky-viewer-v5{padding:7px}
+ .constellation-diagram-v5{min-height:190px;background-size:115% auto}
+}
