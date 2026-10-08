@@ -20,3 +20,7 @@ Markah disimpan menggunakan localStorage supaya kekal ketika murid berpindah ant
 
 ## GitHub Pages
 Upload semua fail ke repository dan aktifkan GitHub Pages daripada branch `main`.
+
+
+## Redirect Pemerhatian
+Pada Stesen 1, gunakan butang **🌌 Lihat Langit Malam** untuk membuka `observation.html` dan memulakan simulator buruj.
