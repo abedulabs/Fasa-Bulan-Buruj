@@ -1,1 +1,121 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#07090d;color:#e8ebf0;font-family:Inter,Arial,sans-serif;line-height:1.6}.stars,.stars-bg{position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#aaa 1px,transparent 1px);background-size:83px 83px,137px 137px;background-position:15px 30px,50px 90px}.hero{position:relative;min-height:58vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;background:radial-gradient(circle at 50% 45%,#343941 0,#15181e 34%,#07090d 72%);overflow:hidden}.hero:after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle at 35% 32%,#fff,#bfc4ca 35%,#666 68%,#262a30 100%);box-shadow:0 0 90px #d9dde5;opacity:.18;right:-70px;top:-80px}.badge{border:1px solid #777;padding:6px 14px;border-radius:999px;font-size:.8rem;letter-spacing:2px;color:#cfd3d8}.hero h1{font-size:clamp(2.5rem,8vw,5.8rem);letter-spacing:8px;margin:18px 0 0;text-shadow:0 0 25px #fff3}.hero p{font-size:1.5rem;margin:0;color:#d8dbe0}.hero .subtitle{font-size:1rem;max-width:650px;color:#9298a1;margin:14px 0 25px}.btn{display:inline-block;border:1px solid #bfc3c9;background:#e9ebee;color:#08090b;padding:12px 24px;border-radius:8px;font-weight:800;cursor:pointer;text-decoration:none;box-shadow:0 8px 25px #000}.btn:hover{transform:translateY(-2px);background:#fff}.btn.secondary{background:#171a1f;color:#ddd;border-color:#555}.panel{position:relative;max-width:1050px;margin:30px auto;padding:30px 24px;background:linear-gradient(145deg,#15181d,#0d0f13);border:1px solid #30343b;border-radius:18px;box-shadow:0 20px 60px #0008}.section-title{display:flex;align-items:center;gap:14px;border-bottom:1px solid #30343b;padding-bottom:14px;margin-bottom:22px}.section-title span{font-size:.8rem;color:#858b94}.section-title h2{margin:0;font-size:1.55rem}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}.info-card{background:#101318;border:1px solid #2d3138;padding:20px;border-radius:14px}.info-card h3{margin-top:0;color:#f0f1f3}.info-card li{margin:8px 0;color:#c1c6ce}.tip{margin-top:18px;padding:15px;border-left:3px solid #aaa;background:#191c21;color:#cbd0d6}.center{text-align:center;color:#9fa5ae}.space-stage{height:400px;position:relative;display:flex;align-items:center;justify-content:center;margin:15px auto;max-width:650px}.orbit{position:absolute;width:330px;height:330px;border:1px dashed #5b616b;border-radius:50%;box-shadow:0 0 35px #fff1}.sun{position:absolute;left:calc(50% - 205px);font-size:42px;filter:drop-shadow(0 0 20px #fff)}.earth{font-size:55px;z-index:2;filter:drop-shadow(0 0 18px #fff3)}.moon{position:absolute;font-size:58px;transform:translateX(165px);transition:transform .5s,filter .5s;filter:drop-shadow(0 0 18px #fff5);z-index:3}.phase-readout{display:flex;justify-content:center;align-items:center;gap:18px;margin:10px auto 22px;max-width:520px;padding:16px;background:#191c21;border-radius:14px;border:1px solid #30343b}.big-moon{font-size:55px}.phase-readout h3{margin:0}.phase-readout p{margin:2px 0;color:#999fa8}.simulator input{width:100%;accent-color:#eee}.slider-labels{display:flex;justify-content:space-between;font-size:1.3rem;margin-top:5px}.question{background:#101318;border:1px solid #2d3138;padding:18px;border-radius:13px;margin:14px 0}.question h3{font-size:1rem;margin:0 0 10px}.option{display:block;padding:8px;margin:5px 0;border-radius:8px;background:#171a1f}.option:hover{background:#22262c}.option input{margin-right:8px}.quiz-actions{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}.result{text-align:center;margin-top:20px;padding:20px;border-radius:14px;background:#191c21;border:1px solid #555}.result strong{font-size:2rem}.hidden{display:none}.mission-home{margin-top:30px}.mission-progress{display:flex;justify-content:space-between;align-items:center;padding:14px 17px;margin:18px 0;background:#101318;border:1px solid #30343b;border-radius:12px}.mission-progress strong{font-size:1.4rem}.mission-cards{display:grid;gap:12px}.mission-card{position:relative;display:grid;grid-template-columns:62px 1fr 48px;gap:14px;align-items:center;padding:17px;background:#101318;border:1px solid #30343b;border-radius:14px;color:#e8ebf0;text-decoration:none}.mission-link:hover,.mission-card:hover{border-color:#8c929a;transform:translateY(-2px)}.mission-icon{font-size:2.4rem;text-align:center}.mission-card span{font-size:.72rem;letter-spacing:2px;color:#7f8791}.mission-card h3{margin:3px 0;font-size:1.2rem}.mission-card p{margin:0;color:#9ea5ae}.mission-points{font-weight:900;text-align:center}.mission-cta{grid-column:2/4;justify-self:start;padding:9px 16px;margin-top:4px}.mission-tip{margin-top:16px;padding:14px;background:#191c21;border-left:3px solid #aaa;color:#c2c7ce}footer{text-align:center;color:#666;padding:35px 15px}.mission-page-body{background:#02040a}.mission-page{position:relative;max-width:1100px;margin:auto;padding:18px 12px 40px}.mission-topbar{display:flex;justify-content:space-between;align-items:center;margin:0 auto 15px;max-width:1050px;color:#aeb4bd}.back{color:#dce0e5;text-decoration:none;border:1px solid #3c424b;background:#101319;padding:9px 13px;border-radius:9px}.back:hover{background:#e9ebee;color:#07090b}.mission-panel{max-width:1050px}.mission-intro{color:#b5bbc3}.observatory{position:relative;height:560px;overflow:hidden;border:1px solid #454b55;border-radius:20px;background:radial-gradient(circle at 50% 55%,#111d36 0,#050914 48%,#010205 100%);box-shadow:inset 0 0 100px #000}.star-field{position:absolute;inset:0;background-image:radial-gradient(circle,#fff 0 1px,transparent 1.7px),radial-gradient(circle,#dce3ef 0 .8px,transparent 1.5px),radial-gradient(circle,#fff 0 .7px,transparent 1.3px);background-size:67px 67px,43px 43px,97px 97px;background-position:7px 11px,17px 33px,23px 8px;opacity:.72}.observatory-title{position:absolute;z-index:10;top:15px;left:18px;letter-spacing:3px;font-size:.72rem;color:#8f98a5}.const-zone{position:absolute;z-index:5;width:220px;height:170px;border:1px solid transparent;border-radius:18px;background:transparent;cursor:pointer}.const-zone:hover,.const-zone.selected{border-color:#dfe5ed;background:#fff1;box-shadow:0 0 35px #fff2}.zone-pari{left:5%;top:29%}.zone-scorpio{right:4%;top:28%}.zone-belantik{left:38%;top:8%}.zone-biduk{right:28%;bottom:7%}.zone-label{position:absolute;z-index:7;width:30px;height:30px;border-radius:50%;background:#e9ebee;color:#08090b;display:grid;place-items:center;font-weight:900;box-shadow:0 0 15px #fff}.label-a{left:4%;top:25%}.label-b{right:3%;top:24%}.label-c{left:37%;top:4%}.label-d{right:27%;bottom:3%}.star-dot{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px #fff,0 0 18px 4px #dce7ff;transform:translate(-50%,-50%)}.star-dot.bright{width:11px;height:11px;box-shadow:0 0 12px 3px #fff,0 0 28px 6px #dce7ff}.mission-instruction{margin:14px 0;padding:14px;background:#171b22;border-left:3px solid #aab0b8;color:#c3c8cf}.target-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.target-buttons button,.answer-grid button{padding:12px 8px;background:#171b21;color:#d4d8de;border:1px solid #3b414a;border-radius:9px;cursor:pointer;font-weight:700}.target-buttons button.selected,.target-buttons button:hover{background:#e9ebee;color:#07090b}.focus-card{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:15px;padding:15px;background:#0e1116;border:1px solid #30353d;border-radius:12px}.observation-answer,.direction-question,.note-form{margin-top:16px;padding:19px;background:#0e1116;border:1px solid #30353d;border-radius:14px}.observation-answer h3{font-size:1.05rem;margin:0 0 13px}.answer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.answer-grid button.correct{background:#e5e8ec;color:#07090b}.answer-grid button.wrong{background:#1c2026;border-color:#777}.feedback{min-height:23px;color:#c4cad2;font-weight:700}.next-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:25px;padding-top:20px;border-top:1px solid #292e35}.ghost{background:#101319}.focus-modal{position:fixed;z-index:100;inset:0;background:#000c;display:grid;place-items:center;padding:20px}.focus-window{position:relative;width:min(680px,95vw);background:#0a0d14;border:1px solid #6d7580;border-radius:20px;padding:24px;box-shadow:0 0 80px #000}.close-focus{position:absolute;right:12px;top:8px;border:0;background:transparent;color:#fff;font-size:2rem;cursor:pointer}.focus-title{letter-spacing:3px;color:#b9c1cb}.focus-sky{position:relative;height:360px;margin:18px 0;border-radius:16px;background:radial-gradient(circle at 50% 50%,#13203b,#030611 75%);overflow:hidden}.focus-help{color:#aeb6c0;text-align:center}.note-form{display:grid;gap:9px;max-width:760px;margin:auto}.note-form label{font-size:.82rem;color:#979ea8}.note-form input,.note-form textarea{width:100%;padding:12px;background:#090c11;border:1px solid #353b44;border-radius:9px;color:#eee;font:inherit}.note-form textarea{min-height:120px;resize:vertical}.direction-question h3{font-size:1rem;margin-top:0}.direction-question label{display:block;padding:10px;margin:7px 0;background:#171a1f;border-radius:8px}.result-panel{text-align:center}.achievement{padding:32px 18px;margin:20px auto;max-width:680px;border:1px solid #656b74;border-radius:20px;background:radial-gradient(circle at 50% 30%,#3a3f47,#11141a 68%);box-shadow:0 0 60px #fff1}.achievement-icon{font-size:5rem}.achievement h3{font-size:2rem;margin:8px 0}.achievement-score b{font-size:3rem}.achievement-score small{display:block;letter-spacing:2px;color:#9299a3}.achievement p{color:#b8bec7;max-width:580px;margin:auto}.result-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:700px;margin:20px auto}.result-breakdown div{padding:16px;border:1px solid #363c45;border-radius:12px;background:#0e1116}.result-breakdown b{display:block;font-size:1.5rem}.result-breakdown span{font-size:.8rem;color:#9299a3}@media(max-width:720px){.cards{grid-template-columns:1fr}.panel{margin:18px 10px;padding:22px 16px}.observatory{height:500px}.const-zone{width:145px;height:125px}.zone-pari{left:-5%}.zone-scorpio{right:-5%}.zone-belantik{left:28%}.zone-biduk{right:8%}.target-buttons,.answer-grid,.result-breakdown{grid-template-columns:1fr 1fr}.mission-card{grid-template-columns:52px 1fr 42px}.mission-cta{grid-column:2/4}.next-row{flex-direction:column;align-items:stretch}.next-row .btn,.next-row .back{text-align:center}}@media(max-width:480px){.target-buttons,.answer-grid,.result-breakdown{grid-template-columns:1fr}.mission-topbar{font-size:.8rem}.observatory{height:470px}.const-zone{width:125px;height:105px}.zone-pari{left:-9%}.zone-scorpio{right:-9%}.zone-belantik{left:26%}.zone-biduk{right:1%}.zone-label{width:26px;height:26px}.mission-cta{grid-column:1/4;justify-self:stretch;text-align:center}}
+
+/* ===== BALAI CERAP V2 ===== */
+.observatory-v2{
+  position:relative;
+  height:600px;
+  overflow:hidden;
+  border:1px solid #59616d;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 50%,#152342 0,#08101f 38%,#02040a 78%),
+    #02040a;
+  box-shadow:inset 0 0 110px #000,0 20px 60px #0008;
+}
+.observatory-v2 .star-field{
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle,#fff 0 1.2px,transparent 1.8px),
+    radial-gradient(circle,#dbe5f4 0 .8px,transparent 1.5px),
+    radial-gradient(circle,#fff 0 .7px,transparent 1.3px);
+  background-size:61px 61px,37px 37px,101px 101px;
+  background-position:7px 11px,17px 33px,23px 8px;
+  opacity:.75;
+}
+.observatory-v2:after{
+  content:"";
+  position:absolute;inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 55%,transparent 35%,#0008 100%);
+}
+.observatory-v2 .observatory-title{
+  position:absolute;z-index:10;top:16px;left:20px;
+  letter-spacing:3px;font-size:.72rem;color:#aeb8c6;
+}
+.constellation-target{
+  position:absolute;z-index:8;
+  width:290px;height:220px;
+  padding:0;border:1px solid transparent;border-radius:20px;
+  background:#ffffff03;cursor:pointer;
+  transition:.25s;
+}
+.constellation-target:hover,.constellation-target.selected{
+  border-color:#e7edf5;
+  background:#ffffff0b;
+  box-shadow:0 0 38px #dce7ff33;
+}
+.target-pari{left:4%;top:31%}
+.target-scorpio{right:3%;top:30%}
+.target-belantik{left:36%;top:7%}
+.target-biduk{right:25%;bottom:4%}
+.target-tag{
+  position:absolute;z-index:3;left:8px;top:8px;
+  width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;
+  background:#edf0f4;color:#080a0e;font-weight:900;
+  box-shadow:0 0 18px #fff;
+}
+.constellation-svg{width:100%;height:100%}
+.constellation-svg svg{width:100%;height:100%;display:block}
+.constellation-lines line{
+  stroke:#f3f7ff;stroke-width:1.5;opacity:.7;
+  filter:drop-shadow(0 0 3px #fff);
+}
+.constellation-stars circle{
+  fill:#fff;filter:drop-shadow(0 0 5px #fff);
+}
+.constellation-stars .bright-star{
+  fill:#fff;filter:drop-shadow(0 0 7px #fff) drop-shadow(0 0 13px #bcd7ff);
+}
+.constellation-stars .small-star{opacity:.9}
+.zoom-panel{
+  margin-top:18px;
+  padding:18px;
+  border:1px solid #626b78;
+  border-radius:18px;
+  background:#090d15;
+  box-shadow:0 20px 50px #0008;
+}
+.zoom-heading{
+  display:flex;justify-content:space-between;align-items:center;gap:15px;
+}
+.zoom-heading span{font-size:.7rem;letter-spacing:3px;color:#8f99a8}
+.zoom-heading h3{margin:3px 0 0;font-size:1.25rem}
+.close-zoom{
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid #59616d;background:#161b23;color:#fff;
+  font-size:1.8rem;line-height:1;cursor:pointer;
+}
+.close-zoom:hover{background:#e9edf2;color:#080a0e}
+.zoom-sky{
+  position:relative;
+  min-height:400px;margin-top:14px;
+  border-radius:16px;overflow:hidden;
+  background:radial-gradient(circle at 50% 50%,#142443,#030611 76%);
+}
+.zoom-sky svg{width:100%;height:400px;display:block}
+.zoom-panel p{color:#aeb7c3;text-align:center}
+.constellation-reference{
+  margin-top:15px;padding:14px 16px;
+  border:1px solid #343b45;border-radius:12px;
+  background:#11151c;color:#bbc3cd;
+}
+@media(max-width:720px){
+  .observatory-v2{height:520px}
+  .constellation-target{width:190px;height:155px}
+  .target-pari{left:-5%;top:32%}
+  .target-scorpio{right:-5%;top:31%}
+  .target-belantik{left:27%;top:8%}
+  .target-biduk{right:8%;bottom:5%}
+  .zoom-sky,.zoom-sky svg{height:300px;min-height:300px}
+}
+@media(max-width:480px){
+  .observatory-v2{height:470px}
+  .constellation-target{width:150px;height:125px}
+  .target-pari{left:-8%;top:34%}
+  .target-scorpio{right:-8%;top:33%}
+  .target-belantik{left:24%;top:10%}
+  .target-biduk{right:0;bottom:5%}
+  .target-tag{width:25px;height:25px;font-size:.8rem}
+  .zoom-sky,.zoom-sky svg{height:260px;min-height:260px}
+}
