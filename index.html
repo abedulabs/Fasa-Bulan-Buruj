@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAINS TAHUN 5 • Misi Angkasa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars"></div>
+<header class="hero">
+  <div class="badge">SAINS TAHUN 5 • PDPR</div>
+  <h1>🌌 MISI ANGKASA</h1>
+  <p>Fasa Bulan & Buruj</p>
+  <p class="subtitle">Terokai perubahan rupa Bulan dan kenali buruj melalui nota, simulasi dan kuiz.</p>
+  <a href="#nota" class="btn">🚀 Mula Misi</a>
+</header>
+
+<main>
+<section id="nota" class="panel">
+  <div class="section-title"><span>01</span><h2>📖 Nota Penting</h2></div>
+  <div class="cards">
+    <article class="info-card">
+      <h3>🌙 Fasa Bulan</h3>
+      <p>Fasa Bulan ialah perubahan rupa Bulan yang kelihatan dari Bumi. Bulan tidak menghasilkan cahaya sendiri; kita melihat cahaya Matahari yang dipantulkan oleh permukaannya.</p>
+      <ul>
+        <li>🌑 Anak Bulan / Bulan Baharu — hampir tidak kelihatan.</li>
+        <li>🌒 Sabit Muda — sedikit bahagian bercahaya.</li>
+        <li>🌓 Suku Pertama — separuh Bulan kelihatan bercahaya.</li>
+        <li>🌔 Hampir Purnama — lebih separuh bercahaya.</li>
+        <li>🌕 Bulan Purnama — hampir seluruh bahagian menghadap Bumi bercahaya.</li>
+        <li>🌖 Selepas Purnama — bahagian bercahaya semakin berkurang.</li>
+        <li>🌗 Suku Akhir — separuh bercahaya.</li>
+        <li>🌘 Sabit Tua — sedikit bahagian bercahaya sebelum kembali kepada Bulan Baharu.</li>
+      </ul>
+    </article>
+    <article class="info-card">
+      <h3>⭐ Buruj</h3>
+      <p>Buruj ialah kumpulan bintang yang kelihatan membentuk corak tertentu apabila dilihat dari Bumi.</p>
+      <ul>
+        <li>Buruj kelihatan seperti corak atau bentuk tertentu di langit.</li>
+        <li>Buruj boleh digunakan sebagai panduan arah dan membantu menentukan kedudukan.</li>
+        <li>Contoh: <b>Buruj Belantik (Orion)</b> dan <b>Buruj Pari (Crux)</b>.</li>
+        <li>Kedudukan buruj yang kelihatan boleh berubah mengikut masa dan lokasi pemerhatian.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="tip"><b>💡 Ingat:</b> Fasa Bulan berlaku kerana kedudukan relatif Matahari, Bumi dan Bulan berubah ketika Bulan mengelilingi Bumi.</div>
+</section>
+
+<section class="panel simulator">
+  <div class="section-title"><span>02</span><h2>🌙 Simulator Fasa Bulan</h2></div>
+  <p class="center">Gerakkan slider untuk melihat perubahan fasa Bulan sepanjang satu kitaran.</p>
+  <div class="space-stage">
+    <div class="orbit"></div>
+    <div class="sun">☀️</div>
+    <div class="earth">🌍</div>
+    <div id="moon" class="moon">🌑</div>
+  </div>
+  <div class="phase-readout">
+    <div id="phaseIcon" class="big-moon">🌑</div>
+    <div>
+      <h3 id="phaseName">Bulan Baharu</h3>
+      <p id="phaseDesc">Bulan berada hampir antara Matahari dan Bumi.</p>
+    </div>
+  </div>
+  <input id="phaseSlider" type="range" min="0" max="7" value="0" step="1" aria-label="Slider fasa Bulan">
+  <div class="slider-labels"><span>🌑</span><span>🌒</span><span>🌓</span><span>🌔</span><span>🌕</span><span>🌖</span><span>🌗</span><span>🌘</span></div>
+</section>
+
+<section class="panel quiz">
+  <div class="section-title"><span>03</span><h2>🧠 Kuiz Misi Angkasa</h2></div>
+  <p class="center">Jawab semua 10 soalan. Pilih satu jawapan bagi setiap soalan.</p>
+  <form id="quizForm"></form>
+  <div class="quiz-actions">
+    <button id="submitQuiz" class="btn" type="button">🚀 Semak Jawapan</button>
+    <button id="resetQuiz" class="btn secondary" type="button">↻ Cuba Semula</button>
+  </div>
+  <div id="result" class="result hidden"></div>
+</section>
+
+<section class="panel mission">
+  <div class="section-title"><span>04</span><h2>⭐ Misi Tambahan</h2></div>
+  <p>Selepas kuiz, cuba cari Buruj Pari atau Buruj Belantik di langit malam. Perhatikan bentuk bintang dan catat masa pemerhatian.</p>
+  <div class="mission-grid">
+    <div>🔭 <b>Pemerhatian</b><br>Kenal pasti corak bintang.</div>
+    <div>📝 <b>Catatan</b><br>Tulis tarikh & masa.</div>
+    <div>🧭 <b>Arah</b><br>Catat arah buruj kelihatan.</div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 • Misi Angkasa • Sains Tahun 5 • PDPR</footer>
+<script src="script.js"></script>
+</body>
+</html>
