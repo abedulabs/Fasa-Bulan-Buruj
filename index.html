@@ -1,15 +1,111 @@
 <!DOCTYPE html>
 <html lang="ms">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Misi Angkasa • Sains Tahun 5</title><link rel="stylesheet" href="style.css"></head>
-<body class="main-page"><div class="stars-bg"></div>
-<header class="hero"><div class="eyebrow">SAINS TAHUN 5 • UNIT 9</div><h1>🌌 MISI ANGKASA</h1><p>Fasa Bulan & Buruj</p><p class="lead">Lengkapkan tiga stesen misi untuk menjadi Penjelajah Angkasa.</p></header>
-<main><section class="panel mission-home"><div class="section-title"><span>04</span><h2>⭐ Misi Tambahan: Penjelajah Angkasa</h2></div>
-<p class="intro">Ikuti misi mengikut urutan: <b>Pemerhatian → Catatan → Arah</b>. Setiap stesen akan dibuka sebagai halaman khas supaya kamu boleh fokus pada tugasan.</p>
-<div class="mission-progress"><span>Markah Misi</span><strong id="homeScore">0/7</strong></div>
-<div class="mission-cards">
-<div class="mission-card observation-card"><div class="card-icon">🔭</div><div><span>STESEN 1</span><h3>Pemerhatian</h3><p>Terokai langit malam dan kenal pasti 4 buruj.</p><a class="btn mission-cta" href="observation.html">🌌 Lihat Langit Malam</a></div><b>+4</b></div>
-<a class="mission-card" href="notes.html"><div class="card-icon">📝</div><div><span>STESEN 2</span><h3>Catatan</h3><p>Tulis pemerhatian selepas meneroka buruj.</p></div><b>+1</b></a>
-<a class="mission-card" href="direction.html"><div class="card-icon">🧭</div><div><span>STESEN 3</span><h3>Arah</h3><p>Jawab soalan objektif arah Utara dan Selatan.</p></div><b>+2</b></a>
-</div>
-<div class="mission-tip">🚀 <b>Arahan:</b> Klik <b>Pemerhatian</b> dahulu. Selepas selesai, tekan <b>← Kembali ke Misi</b> dan teruskan ke Catatan dan Arah.</div>
-</section></main><footer>🌌 Misi Angkasa • Sains Tahun 5 • Pembelajaran Interaktif</footer><script src="script.js"></script></body></html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAINS TAHUN 5 • Misi Angkasa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars"></div>
+<header class="hero">
+  <div class="badge">SAINS TAHUN 5 • PDPR</div>
+  <h1>🌌 MISI ANGKASA</h1>
+  <p>Fasa Bulan & Buruj</p>
+  <p class="subtitle">Terokai perubahan rupa Bulan dan kenali buruj melalui nota, simulasi, kuiz dan misi balai cerap.</p>
+  <a href="#nota" class="btn">🚀 Mula Misi</a>
+</header>
+
+<main>
+<section id="nota" class="panel">
+  <div class="section-title"><span>01</span><h2>📖 Nota Penting</h2></div>
+  <div class="cards">
+    <article class="info-card">
+      <h3>🌙 Fasa Bulan</h3>
+      <p>Fasa Bulan ialah perubahan rupa Bulan yang kelihatan dari Bumi. Bulan tidak menghasilkan cahaya sendiri; kita melihat cahaya Matahari yang dipantulkan oleh permukaannya.</p>
+      <ul>
+        <li>🌑 Bulan Baharu — hampir tidak kelihatan.</li>
+        <li>🌒 Sabit Muda — sedikit bahagian bercahaya.</li>
+        <li>🌓 Suku Pertama — separuh kelihatan bercahaya.</li>
+        <li>🌔 Hampir Purnama — lebih separuh bercahaya.</li>
+        <li>🌕 Bulan Purnama — hampir seluruh bahagian menghadap Bumi bercahaya.</li>
+        <li>🌖 Selepas Purnama — bahagian bercahaya semakin berkurang.</li>
+        <li>🌗 Suku Akhir — separuh bercahaya.</li>
+        <li>🌘 Sabit Tua — sedikit bahagian bercahaya sebelum kembali kepada Bulan Baharu.</li>
+      </ul>
+    </article>
+    <article class="info-card">
+      <h3>⭐ Buruj</h3>
+      <p>Buruj ialah kumpulan bintang yang kelihatan membentuk corak tertentu apabila dilihat dari Bumi.</p>
+      <ul>
+        <li>Buruj kelihatan seperti corak atau bentuk tertentu di langit.</li>
+        <li>Buruj boleh menjadi panduan arah dan kedudukan.</li>
+        <li>Contoh: <b>Buruj Belantik</b> dan <b>Buruj Pari</b>.</li>
+        <li>Kedudukan buruj yang kelihatan boleh berubah mengikut masa dan lokasi.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="tip"><b>💡 Ingat:</b> Fasa Bulan berlaku kerana kedudukan relatif Matahari, Bumi dan Bulan berubah ketika Bulan mengelilingi Bumi.</div>
+</section>
+
+<section class="panel simulator">
+  <div class="section-title"><span>02</span><h2>🌙 Simulator Fasa Bulan</h2></div>
+  <p class="center">Gerakkan slider untuk melihat perubahan fasa Bulan sepanjang satu kitaran.</p>
+  <div class="space-stage">
+    <div class="orbit"></div>
+    <div class="sun">☀️</div>
+    <div class="earth">🌍</div>
+    <div id="moon" class="moon">🌑</div>
+  </div>
+  <div class="phase-readout">
+    <div id="phaseIcon" class="big-moon">🌑</div>
+    <div>
+      <h3 id="phaseName">Bulan Baharu</h3>
+      <p id="phaseDesc">Bulan berada hampir antara Matahari dan Bumi.</p>
+    </div>
+  </div>
+  <input id="phaseSlider" type="range" min="0" max="7" value="0" step="1" aria-label="Slider fasa Bulan">
+  <div class="slider-labels"><span>🌑</span><span>🌒</span><span>🌓</span><span>🌔</span><span>🌕</span><span>🌖</span><span>🌗</span><span>🌘</span></div>
+</section>
+
+<section class="panel quiz">
+  <div class="section-title"><span>03</span><h2>🧠 Kuiz Misi Angkasa</h2></div>
+  <p class="center">Jawab semua 10 soalan. Pilih satu jawapan bagi setiap soalan.</p>
+  <form id="quizForm"></form>
+  <div class="quiz-actions">
+    <button id="submitQuiz" class="btn" type="button">🚀 Semak Jawapan</button>
+    <button id="resetQuiz" class="btn secondary" type="button">↻ Cuba Semula</button>
+  </div>
+  <div id="result" class="result hidden"></div>
+</section>
+
+<section class="panel mission-home">
+  <div class="section-title"><span>04</span><h2>⭐ Misi Tambahan: Balai Cerap</h2></div>
+  <p class="center">Lengkapkan tiga stesen: <b>Pemerhatian → Catatan → Arah</b>. Misi tambahan memberi sehingga <b>7 markah</b>.</p>
+  <div class="mission-progress"><span>Markah Misi</span><strong id="homeScore">0/7</strong></div>
+  <div class="mission-cards">
+    <div class="mission-card">
+      <div class="mission-icon">🔭</div>
+      <div><span>STESEN 1</span><h3>Pemerhatian</h3><p>Masuk ke balai cerap dan kenal pasti 4 buruj melalui susunan bintang.</p></div>
+      <div class="mission-points">+4</div>
+      <a class="btn mission-cta" href="observation.html">🌌 Lihat Langit Malam</a>
+    </div>
+    <a class="mission-card mission-link" href="notes.html">
+      <div class="mission-icon">📝</div>
+      <div><span>STESEN 2</span><h3>Catatan</h3><p>Catat apa yang kamu perhatikan selepas meneroka langit malam.</p></div>
+      <div class="mission-points">+1</div>
+    </a>
+    <a class="mission-card mission-link" href="direction.html">
+      <div class="mission-icon">🧭</div>
+      <div><span>STESEN 3</span><h3>Arah</h3><p>Jawab soalan objektif tentang arah Utara dan Selatan.</p></div>
+      <div class="mission-points">+2</div>
+    </a>
+  </div>
+  <div class="mission-tip">🚀 Selepas selesai semua stesen, keputusan penuh akan dipaparkan pada halaman <b>Pencapaian</b>.</div>
+</section>
+</main>
+
+<footer>© 2026 • Misi Angkasa • Sains Tahun 5 • PDPR</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,2 +1,9 @@
-let state=loadMission();document.getElementById('dirScoreTop').textContent=state.total;function answer(q,correct,chosen){const box=document.querySelector(`[data-q="${q}"]`),fb=document.getElementById(q+'feedback');box.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));if(chosen.dataset.answer===correct){chosen.classList.add('correct');if(!state.direction[q]){state.direction[q]=true;state.total++;saveMission(state);}fb.textContent='🌟 Betul! +1 markah misi.';}else{chosen.classList.add('wrong');fb.textContent='🔭 Cuba lagi. Fikirkan buruj yang menjadi petunjuk arah.';}document.getElementById('dirScoreTop').textContent=state.total;}
-document.querySelectorAll('[data-q="d1"] button').forEach(b=>b.addEventListener('click',(e)=>answer('d1','biduk',e.currentTarget)));document.querySelectorAll('[data-q="d2"] button').forEach(b=>b.addEventListener('click',(e)=>answer('d2','pari',e.currentTarget)));document.getElementById('finishDirection').addEventListener('click',()=>location.href='result.html');
+let ds=loadMission();document.getElementById("dirScore").textContent=ds.total;
+document.getElementById("checkDirection").onclick=()=>{
+ const a=document.querySelector('input[name="d1"]:checked'),b=document.querySelector('input[name="d2"]:checked');
+ if(!a||!b){document.getElementById("dirFeedback").textContent="🧭 Jawab kedua-dua soalan dahulu.";return}
+ const score=(a.value==="utara"?1:0)+(b.value==="selatan"?1:0);
+ const previous=ds.direction||0; ds.total += score-previous; ds.direction=score; saveMission(ds);
+ document.getElementById("dirScore").textContent=ds.total;
+ document.getElementById("dirFeedback").textContent=`🌟 ${score}/2 jawapan betul. Markah arah dikemas kini.`;
+};

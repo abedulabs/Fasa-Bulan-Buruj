@@ -1,1 +1,8 @@
-let state=loadMission();document.getElementById('noteScoreTop').textContent=state.total;const saved=state.note;document.getElementById('noteName').value=saved.name||'';document.getElementById('noteShape').value=saved.shape||'';document.getElementById('noteFinding').value=saved.finding||'';document.getElementById('saveNote').addEventListener('click',()=>{const name=document.getElementById('noteName').value.trim(),shape=document.getElementById('noteShape').value.trim(),finding=document.getElementById('noteFinding').value.trim(),fb=document.getElementById('noteFeedback');if(!name||!shape||!finding){fb.textContent='⚠️ Lengkapkan semua ruangan dahulu.';return;}state.note={name,shape,finding};if(!state.noteDone){state.noteDone=true;state.total++;}saveMission(state);document.getElementById('noteScoreTop').textContent=state.total;fb.textContent='🛰️ Catatan disimpan. +1 markah misi!';});
+let ns=loadMission();document.getElementById("noteScore").textContent=ns.total;
+document.getElementById("saveNote").onclick=()=>{
+ const ok=document.getElementById("studentName").value.trim()&&document.getElementById("favConst").value.trim()&&document.getElementById("noteText").value.trim();
+ if(!ok){document.getElementById("noteFeedback").textContent="✏️ Lengkapkan semua ruang catatan dahulu.";return}
+ if(!ns.notes){ns.notes=true;ns.total++;saveMission(ns)}
+ document.getElementById("noteScore").textContent=ns.total;
+ document.getElementById("noteFeedback").textContent="🌟 Catatan disimpan! +1 markah.";
+};

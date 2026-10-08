@@ -1,97 +1,35 @@
-const O={
-  pari:{name:'Buruj Pari',shape:'seperti salib / layang-layang'},
-  scorpio:{name:'Buruj Skorpio',shape:'seperti kala jengking'},
-  belantik:{name:'Buruj Belantik',shape:'seperti pemburu'},
-  biduk:{name:'Buruj Biduk',shape:'seperti gayung / senduk'}
+const constellationNames={pari:"Buruj Pari",scorpio:"Buruj Skorpio",belantik:"Buruj Belantik",biduk:"Buruj Biduk"};
+const layouts={
+ pari:[[50,7,1],[50,30,0],[50,53,1],[28,42,1],[72,42,1],[50,82,0]],
+ scorpio:[[8,22,1],[19,29,0],[31,37,1],[43,46,1],[55,57,1],[65,70,1],[76,82,1],[86,72,1],[94,58,0],[84,49,0],[71,43,0],[58,34,0],[45,27,0]],
+ belantik:[[20,12,1],[50,8,1],[80,14,1],[30,31,0],[50,36,1],[70,31,0],[50,51,1],[36,69,1],[64,69,1],[50,91,1]],
+ biduk:[[12,42,1],[29,28,1],[47,33,1],[63,49,1],[48,67,1],[28,61,1],[70,61,0],[88,50,1]]
 };
-
-const STAR_MAP={
-  // Kedudukan relatif berdasarkan corak bintang contoh rujukan:
-  // Pari (Crux): bentuk salib tanpa garisan penghubung.
-  pari:[
-    [50,10,'bright'],[50,35,'dim'],[50,58,'bright'],
-    [25,43,'bright'],[75,43,'bright'],[51,86,'dim']
-  ],
-  // Skorpio: lengkung badan dan ekor yang berliku.
-  scorpio:[
-    [9,20,'bright'],[20,27,'dim'],[31,34,'bright'],[43,43,'bright'],
-    [54,52,'bright'],[63,64,'bright'],[70,77,'bright'],
-    [78,86,'bright'],[88,79,'bright'],[94,68,'dim'],
-    [83,56,'dim'],[72,48,'dim'],[60,39,'dim'],[48,31,'dim']
-  ],
-  // Belantik (Orion): empat bintang utama dengan tiga bintang di bahagian tengah.
-  belantik:[
-    [20,12,'bright'],[50,7,'bright'],[80,13,'bright'],
-    [29,31,'dim'],[50,35,'bright'],[71,31,'dim'],
-    [50,49,'bright'],[35,70,'bright'],[65,70,'bright'],
-    [50,91,'bright']
-  ],
-  // Biduk (Big Dipper): tujuh bintang membentuk mangkuk dan pemegang.
-  biduk:[
-    [14,35,'bright'],[31,27,'bright'],[48,31,'bright'],[62,48,'bright'],
-    [48,67,'bright'],[28,61,'bright'],[70,58,'dim'],
-    [86,47,'bright']
-  ]
-};
-
-function buildConstellations(){
-  document.querySelectorAll('.constellation').forEach(el=>{
-    const key=el.dataset.const;
-    el.innerHTML='';
-    (STAR_MAP[key]||[]).forEach(([x,y,kind])=>{
-      const s=document.createElement('span');
-      s.className=`constellation-star ${kind||''}`;
-      s.style.left=`${x}%`;
-      s.style.top=`${y}%`;
-      el.appendChild(s);
-    });
-  });
-}
-
-let state=loadMission(), current='pari';
-function refreshTop(){
-  document.getElementById('obsScoreTop').textContent=state.total;
-}
+let state=loadMission(),current="pari";
+function starsHTML(key){return layouts[key].map(([x,y,b])=>`<i class="star-dot ${b?"bright":""}" style="left:${x}%;top:${y}%"></i>`).join("")}
+function renderZone(key,root){root.innerHTML=starsHTML(key)}
+document.querySelectorAll(".const-zone").forEach(el=>renderZone(el.dataset.const,el));
+function refresh(){document.getElementById("obsScoreTop").textContent=state.total}
 function choose(key){
-  current=key;
-  const keys=['pari','scorpio','belantik','biduk'];
-  document.getElementById('selectedTarget').textContent=String.fromCharCode(65+keys.indexOf(key));
-  document.querySelectorAll('.constellation,.target-buttons button').forEach(x=>{
-    x.classList.toggle('selected',x.dataset.const===key||x.dataset.target===key);
-  });
-  document.querySelectorAll('#constAnswers button').forEach(x=>x.classList.remove('correct','wrong'));
-  document.getElementById('obsFeedback').textContent=
-    state.observation[key]?'✅ Sasaran ini telah dikenal pasti.':'Pilih jawapan berdasarkan kedudukan dan corak bintang.';
+ current=key;
+ const letters={pari:"A",scorpio:"B",belantik:"C",biduk:"D"};
+ document.getElementById("selectedTarget").textContent=letters[key];
+ document.querySelectorAll(".const-zone,.target-buttons button").forEach(el=>el.classList.toggle("selected",el.dataset.const===key||el.dataset.target===key));
+ document.querySelectorAll(".observation-answer button").forEach(b=>b.classList.remove("correct","wrong"));
+ document.getElementById("obsFeedback").textContent=state.observation[key]?"✅ Sasaran ini telah dikenal pasti.":"Perhatikan susunan bintang sebelum memilih jawapan.";
 }
-
-document.querySelectorAll('.target-buttons button').forEach(x=>{
-  x.addEventListener('click',()=>choose(x.dataset.target));
-});
-
-document.querySelectorAll('#constAnswers button').forEach(x=>{
-  x.addEventListener('click',()=>{
-    document.querySelectorAll('#constAnswers button').forEach(b=>b.classList.remove('correct','wrong'));
-    if(x.dataset.answer===current){
-      x.classList.add('correct');
-      if(!state.observation[current]){
-        state.observation[current]=true;
-        state.total++;
-        saveMission(state);
-      }
-      document.getElementById('obsFeedback').textContent=
-        `🌟 Betul! ${O[current].name} membentuk corak ${O[current].shape}. +1 markah.`;
-      refreshTop();
-    }else{
-      x.classList.add('wrong');
-      document.getElementById('obsFeedback').textContent=
-        '🔭 Belum tepat. Perhatikan semula kedudukan bintang pada kawasan ini.';
-    }
-  });
-});
-
-buildConstellations();
-document.querySelectorAll('.constellation').forEach(x=>{
-  x.addEventListener('click',()=>choose(x.dataset.const));
-});
-choose('pari');
-refreshTop();
+document.querySelectorAll(".const-zone,.target-buttons button").forEach(el=>el.addEventListener("click",()=>choose(el.dataset.const||el.dataset.target)));
+document.querySelectorAll(".observation-answer button").forEach(el=>el.addEventListener("click",()=>{
+ document.querySelectorAll(".observation-answer button").forEach(b=>b.classList.remove("correct","wrong"));
+ if(el.dataset.answer===current){
+  el.classList.add("correct");
+  if(!state.observation[current]){state.observation[current]=true;state.total++;saveMission(state)}
+  document.getElementById("obsFeedback").textContent=`🌟 Betul! ${constellationNames[current]} dikenal pasti. +1 markah.`;
+  refresh();
+ }else{el.classList.add("wrong");document.getElementById("obsFeedback").textContent="🔭 Belum tepat. Perhatikan semula susunan bintang."}
+}));
+const modal=document.getElementById("focusModal"),focusSky=document.getElementById("focusSky");
+document.getElementById("focusBtn").onclick=()=>{focusSky.innerHTML=starsHTML(current);document.getElementById("focusName").textContent=`Sasaran ${current==="pari"?"A":current==="scorpio"?"B":current==="belantik"?"C":"D"}`;modal.classList.remove("hidden")};
+document.getElementById("closeFocus").onclick=()=>modal.classList.add("hidden");
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.add("hidden")});
+choose("pari");refresh();
